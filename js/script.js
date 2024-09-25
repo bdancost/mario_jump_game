@@ -1,5 +1,7 @@
 const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
+const scoreElement = document.getElementById("score");
+let score = 0;
 
 const jump = () => {
   mario.classList.add("jump");
@@ -8,6 +10,14 @@ const jump = () => {
     mario.classList.remove("jump");
   }, 500);
 };
+
+const restartButton = document.getElementById("restart-button");
+
+const restartGame = () => {
+  location.reload(); // Recarrega a página para reiniciar o jogo
+};
+
+restartButton.addEventListener("click", restartGame);
 
 const loop = setInterval(() => {
   console.log("loop");
@@ -28,7 +38,20 @@ const loop = setInterval(() => {
     mario.style.width = "75px";
     mario.style.marginLeft = "50px";
 
+    // Exibe o botão de reiniciar ao terminar o jogo
+    restartButton.style.display = "block";
+
     clearInterval(loop);
+  } else {
+    // Incrementa a pontuação
+    score++;
+    scoreElement.innerHTML = score;
+
+    // Aumenta a dificuldade (diminui o tempo da animação)
+    if (score % 100 === 0) {
+      pipeSpeed -= 0.1; // Aumenta a velocidade
+      pipe.style.animation = `pipe-animation ${pipeSpeed}s infinite linear`;
+    }
   }
 }, 10);
 
