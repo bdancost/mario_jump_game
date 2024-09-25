@@ -119,7 +119,7 @@ Feito por **Daniel**. Se você gostou do projeto, considere dar uma ⭐ e contri
 
 ### Contato
 
-- GitHub: [seu-usuario](https://github.com/seu-usuario)
+- GitHub: https://github.com/bdancost
 - Email: pr.danfc88@gmail.com
 
 ---
